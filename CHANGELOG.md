@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Removed FeatureGates that default to true in Kubernetes 1.24.
+- Bump up `cluster-shared` to 0.6.4
 
 ## 0.18.0 - 2023-03-15
 
