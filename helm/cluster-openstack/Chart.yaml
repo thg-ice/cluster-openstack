@@ -1,11 +1,9 @@
 apiVersion: v2
 name: cluster-openstack
 description: A helm chart for creating Cluster API clusters with the OpenStack infrastructure provider (CAPO).
-home: https://github.com/giantswarm/cluster-openstack
+home: https://github.com/thg-ice/cluster-openstack
 type: application
-version: 0.17.1
-annotations:
-  application.giantswarm.io/team: "rocket"
+version: 0.18.0
 restrictions:
   compatibleProviders:
     - openstack

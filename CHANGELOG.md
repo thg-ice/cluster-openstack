@@ -7,9 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Removed FeatureGates that default to true in Kubernetes 1.24.
+### Added
+
 - A stanza in values file for customizing image repository of control-plane containers.
+
+### Changed
+
+- Removed FeatureGates that default to true in Kubernetes 1.24.
 - Bump up `cluster-shared` to 0.6.4
+
+## 0.18.0 - 2023-03-15
+
+- No changes from 0.17.1, marks diverging point for THG-ICE's fork.
 
 ## [0.17.1] - 2023-02-20
 
