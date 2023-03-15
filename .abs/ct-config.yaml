@@ -1,0 +1,3 @@
+---
+chart-repos:
+  - cluster-catalog=https://thg-ice.github.io/cluster-catalog
