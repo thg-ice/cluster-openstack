@@ -1,13 +1,13 @@
 apiServer:
   enableAdmissionPlugins: "NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota,PersistentVolumeClaimResize,DefaultStorageClass,Priority,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook"
-  featureGates: "TTLAfterFinished=true"
+  featureGates: ""
 baseDomain: ""  # Customer base domain, generally of the form "<customer codename>.gigantic.io".
 cloudConfig: ""  # Name of existing cloud-config secret in management cluster namespace.
 cloudName: ""  # Name of cloud in cloud-config secret "cloud.yaml" value.
 clusterDescription: ""  # Cluster description used in metadata.
 clusterName: ""  # Name of cluster. Used as base name for all cluster resources in the management cluster.
 controllerManager:
-  featureGates: "ExpandPersistentVolumes=true,TTLAfterFinished=true"
+  featureGates: ""
 dnsNameservers: []  # IPs of DNS nameservers to be used by the cluster machines (optional, will use OS defaults if not specified).
 kubernetesVersion: ""  # Version of Kubernetes. If machine images are specified, this will only be used for metadata.
 managementCluster: ""  # Name of cluster which owns this workload cluster.
@@ -44,6 +44,7 @@ controlPlane:
   diskSize: 0  # Root volume disk size in GB. Ignored if bootFromVolume is false. Should be at least as large as the source image.
   flavor: ""  # Project-dependent flavor of control plane machines.
   image: ""  # Image name or root volume source UUID if bootFromVolume is true.
+  imageRepository: "registry.k8s.io"  # Image repository to pull control plane container images from.
   replicas: 0  # Number of replicas in control plane. Should be an odd number.
   bootFromVolume: false  # If true, machines will use a persistent root volume instead of an ephemeral volume.
   etcd:

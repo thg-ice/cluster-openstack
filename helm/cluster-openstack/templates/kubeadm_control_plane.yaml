@@ -24,6 +24,7 @@ spec:
                   After=containerd.service
     {{- end }}
     clusterConfiguration:
+      imageRepository: "{{ .Values.controlPlane.imageRepository }}"
       apiServer:
         certSANs:
           - 127.0.0.1
