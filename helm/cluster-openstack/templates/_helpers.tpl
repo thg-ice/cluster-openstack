@@ -8,7 +8,7 @@ Expand the name of the chart.
 {{- end -}}
 
 {{- define "infrastructureApiVersion" -}}
-infrastructure.cluster.x-k8s.io/v1alpha5
+infrastructure.cluster.x-k8s.io/v1alpha6
 {{- end -}}
 
 {{/*
