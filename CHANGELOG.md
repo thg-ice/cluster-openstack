@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.2] - 2023-03-29
+
+### Changed
+
+- Changes the CAPO apiVersion to v1alpha6.
+- Add Helm annotations to keep OpenStackCluster and KubeadmControlPlane when deleting.
+
 ## [0.18.1] - 2023-03-15
 
 ### Added
@@ -259,7 +266,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial implementation.
 
-[Unreleased]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.1...HEAD
+[Unreleased]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.2...HEAD
+[0.18.2]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.1...v0.18.2
 [0.18.1]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.0...v0.18.1
 [0.17.1]: https://github.com/giantswarm/cluster-openstack/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/giantswarm/cluster-openstack/compare/v0.16.1...v0.17.0
