@@ -5,6 +5,9 @@ metadata:
     {{- include "labels.common" $ | nindent 4 }}
   name: {{ include "resource.default.name" $ }}
   namespace: {{ $.Release.Namespace }}
+  annotations:
+    # Let Cluster API clean this resource up.
+    helm.sh/resource-policy: keep
 spec:
   {{- if .Values.managementCluster }}
   tags:
