@@ -17,6 +17,8 @@ nodeCIDR: ""  # The OpenStack Subnet to be created.
 externalNetworkID: ""  # UUID of external network (optional unless there are multiple external networks).
 networkName: ""  # Existing network name. Ignored when nodeCIDR is set.
 subnetName: ""  # Existing subnet name. Ignored when nodeCIDR is set.
+apiServerLoadBalancer:
+  allowedCidrs: []  # Allowed CIDR ranges for the API Server LB (optional, leave blank to allow all).
 
 sshTrustedUserCAKeys:
   # Taken from https://vault.operations.giantswarm.io/v1/ssh/public_key
