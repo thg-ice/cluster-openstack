@@ -17,6 +17,17 @@
                 "featureGates"
             ]
         },
+        "apiServerLoadBalancer": {
+            "type": "object",
+            "properties": {
+                "allowedCidrs": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        },
         "baseDomain": {
             "type": "string"
         },
@@ -208,6 +219,7 @@
     },
     "required": [
       "apiServer",
+      "apiServerLoadBalancer",
       "baseDomain",
       "bastion",
       "cloudConfig",

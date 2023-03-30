@@ -25,6 +25,10 @@ spec:
     kind: Secret
   apiServerLoadBalancer:
     enabled: true
+    allowedCidrs:
+    {{- range .Values.apiServerLoadBalancer.allowedCidrs }}
+    - {{ . | quote }}
+    {{- end }}
   managedSecurityGroups: true
   {{- if .Values.nodeCIDR }}
   nodeCidr: {{ .Values.nodeCIDR | quote }}
@@ -54,7 +58,7 @@ spec:
           name: {{ .Values.networkName }}
         subnets:
         - filter:
-            name: {{ .Values.subnetName }} 
+            name: {{ .Values.subnetName }}
       {{- end }}
       {{- if .Values.bastion.bootFromVolume }}
       rootVolume:
