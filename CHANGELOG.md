@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A stanza in values file for customizing API Server LB whitelist CIDR range.
+
 ## [0.18.2] - 2023-03-29
 
 ### Changed
