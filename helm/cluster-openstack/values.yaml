@@ -60,6 +60,7 @@ nodeClasses: {}  # Class definitions for worker node pools. The "name" of the cl
   #   diskSize: 50
   #   flavor: n1.medium
   #   image: ubuntu-2004-kube-v1.22.9
+  #   volumeType: my-type
 
 nodePools: {}  # Node pools that should exist for the cluster. Each node pool must refer to a class defined in nodeClasses above. Example:
   # us-dc-1:
