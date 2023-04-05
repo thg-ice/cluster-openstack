@@ -121,6 +121,9 @@
                 "resourceRatio" : {
                     "minimum": 2,
                     "type": "integer"
+                },
+                "volumeType": {
+                    "type": "string"
                 }
             },
             "required": [

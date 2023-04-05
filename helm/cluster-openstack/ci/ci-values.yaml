@@ -31,6 +31,7 @@ controlPlane:
   image: control-plane-image
   replicas: 3
   bootFromVolume: true
+  volumeType: control-plane-volume-type
 
 nodeClasses:
   default:

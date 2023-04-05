@@ -175,6 +175,9 @@ networks:
 {{- if .currentClass.bootFromVolume }}
 rootVolume:
   diskSize: {{ .currentClass.diskSize }}
+  {{- if .currentClass.volumeType }}
+  volumeType: {{ .currentClass.volumeType | quote }}
+  {{- end }}
 {{- end }}
 image: {{ .currentClass.image | quote }}
 {{- end -}}
