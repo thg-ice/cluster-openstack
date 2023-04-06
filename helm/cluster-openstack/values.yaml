@@ -51,7 +51,7 @@ controlPlane:
   bootFromVolume: false  # If true, machines will use a persistent root volume instead of an ephemeral volume.
   etcd:
     imageRepository: "registry.k8s.io"
-    imageTag: "3.5.6"
+    imageTag: "3.5.6-0"
   resourceRatio: 8  # Ratio between node resources and apiserver resource requests.
 
 nodeClasses: {}  # Class definitions for worker node pools. The "name" of the class is the key of the object. The properties may include "diskSize", "flavor", "image", and "bootFromVolume" as defined for control plane and bastion above. Example:
