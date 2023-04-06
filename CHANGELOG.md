@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.5] - 2023-04-06
+
+### Changed
+
+- Set the etcd image repository to registry.k8s.io.
+- Bump etcd version to 3.5.6.
+
 ## [0.18.4] - 2023-04-05
 
 ### Added
