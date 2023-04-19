@@ -6,6 +6,9 @@ kind: OpenStackMachineTemplate
 metadata:
   labels:
     {{- include "labels.common" $ | nindent 4 }}
+  annotations:
+    # Let Cluster API clean this resource up.
+    helm.sh/resource-policy: keep
   name: {{ include "resource.default.name" $ }}-{{ $name }}-{{ include "osmtRevision" $c }}
   namespace: {{ $.Release.Namespace }}
 spec:
