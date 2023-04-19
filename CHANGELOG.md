@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Add Helm annotations to keep KubeadmConfigTemplate when deleting.
+- Add Helm annotations to keep KubeadmConfigTemplate and OpenStackMachineTemplate when deleting.
 
 ## [0.18.5] - 2023-04-06
 
