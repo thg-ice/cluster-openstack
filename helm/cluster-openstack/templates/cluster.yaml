@@ -19,14 +19,14 @@ spec:
     name: {{ include "resource.default.name" $ }}
   {{- if or .Values.clusterNetwork.serviceCidrs .Values.clusterNetwork.podCidrs }}
   clusterNetwork:
-    {{- if or .Values.clusterNetwork.serviceCidrs }}
+    {{- if .Values.clusterNetwork.serviceCidrs }}
     services:
       cidrBlocks:
       {{- range .Values.clusterNetwork.serviceCidrs }}
       - {{ . }}
       {{- end }}
     {{- end }}
-    {{- if or .Values.clusterNetwork.podCidrs }}
+    {{- if .Values.clusterNetwork.podCidrs }}
     pods:
       cidrBlocks:
       {{- range .Values.clusterNetwork.podCidrs }}
