@@ -17,3 +17,20 @@ spec:
     apiVersion: {{ include "infrastructureApiVersion" . }}
     kind: OpenStackCluster
     name: {{ include "resource.default.name" $ }}
+  {{- if or .Values.clusterNetwork.serviceCidrs .Values.clusterNetwork.podCidrs }}
+  clusterNetwork:
+    {{- if or .Values.clusterNetwork.serviceCidrs }}
+    services:
+      cidrBlocks:
+      {{- range .Values.clusterNetwork.serviceCidrs }}
+      - {{ . }}
+      {{- end }}
+    {{- end }}
+    {{- if or .Values.clusterNetwork.podCidrs }}
+    pods:
+      cidrBlocks:
+      {{- range .Values.clusterNetwork.podCidrs }}
+      - {{ . }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
