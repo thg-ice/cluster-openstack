@@ -78,6 +78,17 @@ spec:
             listen-metrics-urls: "http://0.0.0.0:2381"
           imageRepository: {{ .Values.controlPlane.etcd.imageRepository }}
           imageTag: {{ .Values.controlPlane.etcd.imageTag }}
+      {{- if or .Values.clusterNetwork.serviceCidrs .Values.clusterNetwork.podCidrs }}
+      # setting this here as GiantSwarm's cluster-apps-operator
+      # expects service CIDR options to be exposed on KCP, not Cluster.
+      networking:
+        {{- if .Values.clusterNetwork.serviceCidrs }}
+        serviceSubnet: {{ .Values.clusterNetwork.serviceCidrs | join "," }}
+        {{- end }}
+        {{- if .Values.clusterNetwork.podCidrs }}
+        podSubnet: {{ .Values.clusterNetwork.podCidrs | join "," }}
+        {{- end }}
+      {{- end }}
       scheduler:
         extraArgs:
           authorization-always-allow-paths: "/healthz,/readyz,/livez,/metrics"
