@@ -180,6 +180,12 @@ rootVolume:
   {{- end }}
 {{- end }}
 image: {{ .currentClass.image | quote }}
+{{- if $.securityGroups }}
+securityGroups:
+{{- range $.securityGroups }}
+- name: {{ . | quote }}
+{{- end }}
+{{- end }}
 {{- end -}}
 
 {{- define "osmtRevision" -}}

@@ -23,6 +23,7 @@ apiServerLoadBalancer:
 clusterNetwork:
   serviceCidrs: ""
   podCidrs: ""
+securityGroups: []  # Extra Security Group names to tack onto the OpenStack machines.
 
 sshTrustedUserCAKeys:
   # Taken from https://vault.operations.giantswarm.io/v1/ssh/public_key
