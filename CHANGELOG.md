@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A stanza to configure the pod and service CIDRs.
+- A stanza to configure OpenStackMachineTemplate security groups.
+
 ## [0.18.5] - 2023-04-06
 
 ### Changed
