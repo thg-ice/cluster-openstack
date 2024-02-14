@@ -39,7 +39,6 @@ spec:
           encryption-provider-config: /etc/kubernetes/encryption/config.yaml
           feature-gates: {{ .Values.apiServer.featureGates }}
           kubelet-preferred-address-types: "InternalIP"
-          logtostderr: "true"
           {{- if .Values.oidc.issuerUrl }}
           {{- with .Values.oidc }}
           oidc-issuer-url: {{ .issuerUrl }}
@@ -70,7 +69,6 @@ spec:
           bind-address: "0.0.0.0"
           cloud-provider: external
           feature-gates: {{ .Values.controllerManager.featureGates }}
-          logtostderr: "true"
           profiling: "false"
       etcd:
         local:
