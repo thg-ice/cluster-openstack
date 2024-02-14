@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.7] - 2024-02-14
+
+### Changed
+
+- Remove deprecated feature gate from kubelet.
+
 ## [0.18.6] - 2024-02-14
 
 ### Changed
@@ -291,7 +297,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial implementation.
 
-[Unreleased]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.6...HEAD
+[Unreleased]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.7...HEAD
+[0.18.6]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.6...v0.18.7
 [0.18.6]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.5...v0.18.6
 [0.18.5]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.4...v0.18.5
 [0.18.4]: https://github.com/thg-ice/cluster-openstack/compare/v0.18.3...v0.18.4
