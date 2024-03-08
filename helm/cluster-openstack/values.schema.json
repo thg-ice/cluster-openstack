@@ -218,6 +218,17 @@
             "items": {
                 "type": "string"
             }
+        },
+        "rollout": {
+            "type": "object",
+            "properties": {
+                "before": {
+                    "type": "boolean"
+                },
+                "certExpiryDays": {
+                    "type": "integer"
+                }
+            }
         }
     },
     "required": [

@@ -72,3 +72,8 @@ nodePools: {}  # Node pools that should exist for the cluster. Each node pool mu
 includeClusterResourceSet: "true"  # must be a string
 # let's use the kubectl image defaults
 kubectlImage: {}
+
+# machine and certificate rotation prior to expiry
+rollout:
+  before: false
+  certExpiryDays: 0
