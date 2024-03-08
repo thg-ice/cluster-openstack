@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 
-- Rollout machines and certificates 14 days prior to expiry.
+- Ability to set machines and certificates rollout prior to expiry.
 
 ## [0.18.7] - 2024-02-14
 
