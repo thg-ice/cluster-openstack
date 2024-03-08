@@ -12,7 +12,7 @@ spec:
   {{- if .Values.rollout.before }}
   rolloutBefore:
     certificartesExpiryDays: {{ .Values.rollout.certExpiryDays }}
-  {{- end}}
+  {{- end }}
   kubeadmConfigSpec:
     {{- if .Values.ignition.enable }}
     format: ignition
