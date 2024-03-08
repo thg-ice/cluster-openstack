@@ -9,6 +9,10 @@ metadata:
     # Let Cluster API clean this resource up.
     helm.sh/resource-policy: keep
 spec:
+  {{- if .Values.rollout.before }}
+  rolloutBefore:
+    certificartesExpiryDays: {{ .Values.rollout.certExpiryDays }}
+  {{- end}}
   kubeadmConfigSpec:
     {{- if .Values.ignition.enable }}
     format: ignition
