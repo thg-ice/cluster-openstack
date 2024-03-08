@@ -76,4 +76,4 @@ kubectlImage: {}
 # machine and certificate rotation prior to expiry
 rollout:
   before: false
-  certExpiryDays: 0
+  certExpiryDays: 14
