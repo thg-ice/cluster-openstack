@@ -9,6 +9,10 @@ metadata:
     # Let Cluster API clean this resource up.
     helm.sh/resource-policy: keep
 spec:
+  {{- if .Values.rollout.before }}
+  rolloutBefore:
+    certificartesExpiryDays: {{ .Values.rollout.certExpiryDays }}
+  {{- end }}
   kubeadmConfigSpec:
     {{- if .Values.ignition.enable }}
     format: ignition
@@ -39,6 +43,9 @@ spec:
           encryption-provider-config: /etc/kubernetes/encryption/config.yaml
           feature-gates: {{ .Values.apiServer.featureGates }}
           kubelet-preferred-address-types: "InternalIP"
+          {{- if (semverCompare "~1.24.0" $.Values.kubernetesVersion) }}
+          logtostderr: "true"
+          {{- end }}
           {{- if .Values.oidc.issuerUrl }}
           {{- with .Values.oidc }}
           oidc-issuer-url: {{ .issuerUrl }}
@@ -69,6 +76,9 @@ spec:
           bind-address: "0.0.0.0"
           cloud-provider: external
           feature-gates: {{ .Values.controllerManager.featureGates }}
+          {{- if (semverCompare "~1.24.0" $.Values.kubernetesVersion) }}
+          logtostderr: "true"
+          {{- end }}
           profiling: "false"
       etcd:
         local:

@@ -74,7 +74,7 @@ room for such suffix.
 {{- end -}}
 
 {{- define "kubeletExtraArgs" -}}
-{{- .Files.Get "files/kubelet-args" -}}
+{{ tpl (.Files.Get "files/kubelet-args") $ -}}
 {{- end -}}
 
 {{- define "kubeProxyFiles" }}

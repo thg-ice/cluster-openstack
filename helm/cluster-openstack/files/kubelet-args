@@ -1,4 +1,7 @@
 cloud-provider: external
+{{- if (semverCompare "~1.24.0" $.Values.kubernetesVersion) }}
+feature-gates: "ExpandPersistentVolumes=true"
+{{- end }}
 eviction-hard : "memory.available<200Mi"
 eviction-max-pod-grace-period: "60"
 eviction-soft: "memory.available<500Mi"
