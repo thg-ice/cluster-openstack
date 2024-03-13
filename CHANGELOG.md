@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.9] - 2024-03-13
+
+## Changed
+
+- Fix typo in machine certificates rollouts
+
 ## [0.18.8] - 2024-03-08
 
 ## Changed

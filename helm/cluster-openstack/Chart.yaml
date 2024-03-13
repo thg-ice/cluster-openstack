@@ -3,7 +3,7 @@ name: cluster-openstack
 description: A helm chart for creating Cluster API clusters with the OpenStack infrastructure provider (CAPO).
 home: https://github.com/thg-ice/cluster-openstack
 type: application
-version: 0.18.8
+version: 0.18.9
 annotations:
   # Keeping this here as removing it prevents existing clusters
   # from being upgraded.
