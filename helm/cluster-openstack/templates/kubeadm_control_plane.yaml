@@ -11,7 +11,7 @@ metadata:
 spec:
   {{- if .Values.rollout.before }}
   rolloutBefore:
-    certificartesExpiryDays: {{ .Values.rollout.certExpiryDays }}
+    certificatesExpiryDays: {{ .Values.rollout.certExpiryDays }}
   {{- end }}
   kubeadmConfigSpec:
     {{- if .Values.ignition.enable }}
