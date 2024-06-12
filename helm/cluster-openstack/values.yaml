@@ -77,3 +77,6 @@ kubectlImage: {}
 rollout:
   before: false
   certExpiryDays: 14
+
+includeCoredns: true
+bootstrapManagementCluster: false

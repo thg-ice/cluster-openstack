@@ -40,7 +40,9 @@ spec:
         extraArgs:
           cloud-provider: external
           enable-admission-plugins: {{ .Values.apiServer.enableAdmissionPlugins }}
+          {{- if not .Values.bootstrapManagementCluster }}
           encryption-provider-config: /etc/kubernetes/encryption/config.yaml
+          {{- end }}
           feature-gates: {{ .Values.apiServer.featureGates }}
           kubelet-preferred-address-types: "InternalIP"
           {{- if (semverCompare "~1.24.0" $.Values.kubernetesVersion) }}
@@ -110,12 +112,14 @@ spec:
     files:
       {{- include "sshFiles" . | nindent 6 }}
       {{- include "kubeProxyFiles" . | nindent 6 }}
+      {{- if not .Values.bootstrapManagementCluster }}
       - path: /etc/kubernetes/encryption/config.yaml
         permissions: "0600"
         contentFrom:
           secret:
             name: {{ include "resource.default.name" $ }}-encryption-provider-config
             key: encryption
+      {{- end }}
       {{- range $kubeadmPatch, $_ :=  .Files.Glob  "files/etc/patches/**" }}
       - path: {{ (printf "/tmp/kubeadm/patches/%s" (base $kubeadmPatch)) }}
         content: |-
