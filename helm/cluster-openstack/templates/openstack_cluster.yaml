@@ -13,7 +13,6 @@ spec:
   tags:
   - giant_swarm_cluster_{{ .Values.managementCluster }}_{{ include "resource.default.name" $ }}
   {{- end }}
-  cloudName: {{ .Values.cloudName | quote }}
   {{- if .Values.controlPlane.availabilityZones }}
   controlPlaneAvailabilityZones:
   {{- range .Values.controlPlane.availabilityZones }}
@@ -22,16 +21,18 @@ spec:
   {{- end }}
   identityRef:
     name: {{ .Values.cloudConfig }}
-    kind: Secret
+    cloudName: {{ .Values.cloudName | quote }}
   apiServerLoadBalancer:
     enabled: true
-    allowedCidrs:
+    allowedCIDRs:
     {{- range .Values.apiServerLoadBalancer.allowedCidrs }}
     - {{ . | quote }}
     {{- end }}
-  managedSecurityGroups: true
+  managedSecurityGroups:
+    allowAllInClusterTraffic: true
   {{- if .Values.nodeCIDR }}
-  nodeCidr: {{ .Values.nodeCIDR | quote }}
+  managedSubnets:
+    - cidr: {{ .Values.nodeCIDR | quote }}
   {{- else }}
   network:
     name: {{ .Values.networkName }}
@@ -39,9 +40,9 @@ spec:
     name: {{ .Values.subnetName }}
   {{- end }}
   {{- if .Values.externalNetworkID }}
-  externalNetworkId: {{ .Values.externalNetworkID | quote }}
+  externalNetwork:
+    id: {{ .Values.externalNetworkID | quote }}
   {{- end }}
-  allowAllInClusterTraffic: true
   {{- if .Values.dnsNameservers }}
   dnsNameservers:
   {{- range .Values.dnsNameservers }}
@@ -50,18 +51,20 @@ spec:
   {{- end }}
   bastion:
     enabled: false
-    instance:
+    spec:
       flavor: {{ .Values.bastion.flavor | quote }}
       {{- if not .Values.nodeCIDR }}
-      networks:
-      - filter:
-          name: {{ .Values.networkName }}
-        subnets:
+      ports:
+        network:
         - filter:
-            name: {{ .Values.subnetName }}
+            name: {{ .Values.networkName }}
+          subnets:
+          - filter:
+              name: {{ .Values.subnetName }}
       {{- end }}
       {{- if .Values.bastion.bootFromVolume }}
       rootVolume:
-        diskSize: {{ .Values.bastion.diskSize }}
+        sizeGiB: {{ .Values.bastion.diskSize }}
       {{- end }}
-      image: {{ .Values.bastion.image | quote }}
+      image:
+        id: {{ .Values.bastion.image | quote }}

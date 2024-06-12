@@ -8,7 +8,7 @@ Expand the name of the chart.
 {{- end -}}
 
 {{- define "infrastructureApiVersion" -}}
-infrastructure.cluster.x-k8s.io/v1alpha6
+infrastructure.cluster.x-k8s.io/v1beta1
 {{- end -}}
 
 {{/*
@@ -159,11 +159,10 @@ Here we are generating a hash suffix to trigger upgrade when only it is necessar
 using only the parameters used in openstack_machine_template.yaml.
 */}}
 {{- define "osmtSpec" -}}
-cloudName: {{ $.cloudName | quote }}
 flavor: {{ .currentClass.flavor | quote }}
 identityRef:
   name: {{ $.cloudConfig }}
-  kind: Secret
+  cloudName: {{ $.cloudName | quote }}
 {{- if not $.nodeCIDR }}
 networks:
 - filter:
@@ -174,12 +173,13 @@ networks:
 {{- end }}
 {{- if .currentClass.bootFromVolume }}
 rootVolume:
-  diskSize: {{ .currentClass.diskSize }}
+  sizeGiB: {{ .currentClass.diskSize }}
   {{- if .currentClass.volumeType }}
-  volumeType: {{ .currentClass.volumeType | quote }}
+  type: {{ .currentClass.volumeType | quote }}
   {{- end }}
 {{- end }}
-image: {{ .currentClass.image | quote }}
+image:
+  id: {{ .currentClass.image | quote }}
 {{- end -}}
 
 {{- define "osmtRevision" -}}
